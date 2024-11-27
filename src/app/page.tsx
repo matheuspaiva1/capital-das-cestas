@@ -6,15 +6,20 @@ export default function Home() {
   return (
     <div className="flex justify-center items-center h-screen">
 
-      <div className="border rounded-lg p-8 bg-zinc-100">
+      <div className="border rounded-lg p-8   bg-zinc-100 shadow-lg">
         <HeaderForm/>
 
         <Form/>
 
-        <hr />
-
-        <p>Não é administrador? </p> 
-        <a href="">Clique aqui</a> <span>e faça o seu login como cliente</span> 
+        <div className="my-4">
+          <hr className="bg-lime-300 h-0.5 w-full"/>
+        </div>
+        <div className="text-center">
+          <p>Não é administrador? 
+          Clique aqui e faça o seu login <br /> como cliente
+          </p> 
+        </div>
+        
 
       </div>
 
