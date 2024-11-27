@@ -1,29 +1,20 @@
+import Form from "./components/Form";
+import HeaderForm from "./components/HeaderForm";
+
+/* eslint-disable @next/next/no-img-element */
 export default function Home() {
   return (
-    <div>
+    <div className="flex justify-center items-center h-screen">
 
-      <div>
-        <img src="" alt="" />
-        <hr />
-        <h1>ADMINISTRAÇÃO</h1>
-        <form action="">
-          <div className="">
-            <p>Login</p>
-            <input type="text" />
-          </div>
+      <div className="border rounded-lg p-8 bg-zinc-100">
+        <HeaderForm/>
 
-          <div className="">
-            <p>Senha</p>
-            <input type="password" />
-          </div>
-          <p>Esqueci a senha</p>
-
-          <button type="submit" className="">Entrar</button>
-        </form>
+        <Form/>
 
         <hr />
 
-        <p>Não é administrador? clique aqui e faça o seu login como cliente</p>
+        <p>Não é administrador? </p> 
+        <a href="">Clique aqui</a> <span>e faça o seu login como cliente</span> 
 
       </div>
 
