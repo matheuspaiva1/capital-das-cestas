@@ -5,12 +5,12 @@ export default function Form() {
   return (
     <form action="">
       <div className="m-auto">
-        <div className="font-bold text-zinc-900">
+        <div className="font-medium text-zinc-900">
           <p>Login</p>
           <input type="text" className='py-3 w-full rounded-lg px-2 text-zinc-600 text-xs'  />
         </div>
 
-        <div className="text-zinc-900 font-bold my-4">
+        <div className="text-zinc-900 font-medium my-4">
           <p>Senha</p>
           <input type="password" className='py-3 w-full rounded-lg px-2 text-zinc-600 font-light text-xs' />
         </div>
