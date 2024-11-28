@@ -14,7 +14,7 @@ export default function Menu() {
     setMenu(!Menu);
   }
   return (
-    <nav className={`bg-zinc-100 h-screen transition-transform duration-300 ${
+    <nav className={`bg-zinc-100 h-screen md:h-[48em] lg:h-screen transition-transform duration-300 ${
       Menu ? 'w-full sm:w-1/4 md:w-2/5 lg:w-1/4' : 'w-0 overflow-hidden'
     }`}>
       <div className="flex mb-12 mt-4 justify-between px-4 sm:justify-start">

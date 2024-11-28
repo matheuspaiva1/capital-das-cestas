@@ -261,10 +261,10 @@ export default function Table() {
             className='border py-2 rounded-lg px-2 lg:w-80 w-30 '/>
             <button 
             type='submit' 
-            className='bg-zinc-800 text-zinc-50 px-10 py-3 rounded-lg font-bold block lg:flex text-xs lg:m-0 my-4'
+            className='bg-zinc-800 text-zinc-50 px-10 py-3 rounded-lg font-bold block md:flex lg:flex text-xs lg:m-0 my-4'
             >Pesquisar</button>
           </div>
-          <button className='bg-lime-400 text-zinc-800 md:px-8 md:py-1 px-6 py-1 rounded-lg font-bold flex justify-end items-center'>Novo</button>
+          <button className='bg-lime-400 text-zinc-800 md:px-8 md:py-1 px-6 py-1 rounded-lg font-bold md:flex block md:justify-center items-center'>Novo</button>
         </div>  
       <table className="m-auto p-4 w-full">
         <thead>
