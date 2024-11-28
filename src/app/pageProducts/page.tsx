@@ -1,11 +1,11 @@
-/* eslint-disable @next/next/no-img-element */
 import React from 'react'
 import Header from './components/Header'
 import Menu from './components/Menu'
 import Table from './components/Table'
 import SearchCompanies from './components/SearchCompanies'
+import withAuth from '../hoc/withAuth'
 
-export default function PageProducts() {
+const PageProducts: React.FC = () => {
   return (
     <div className=''>
 
@@ -14,13 +14,11 @@ export default function PageProducts() {
         <main>
           <Header/>
           <SearchCompanies/>
-          <Table/>        
+          <Table/> 
+          <p>Bem vindo</p>       
         </main>
       </div>
-
-      
-
-      
     </div>
   )
 }
+export default withAuth(PageProducts)
