@@ -19,6 +19,23 @@ export default function Table() {
               <th>Ações</th>
             </tr>
           </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>00.000.000/0001-00</td>
+              <td>PetShop do Bairro</td>
+              <td>PetShop LTDA</td>
+              <td>123456789</td>
+              <td>São Paulo</td>
+              <td>SP</td>
+              <td>01/01/2022</td>
+              <td>15/11/2024</td>
+              <td className="">
+                <button>Editar</button>
+                <button>Excluir</button>
+              </td>
+            </tr>
+          </tbody>
         </table>
 
         <div className="">
