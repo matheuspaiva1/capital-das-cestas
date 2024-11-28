@@ -1,26 +1,32 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
-import React, { useState } from 'react';
-import { IoMenu } from "react-icons/io5";
-import { GoArrowSwitch } from "react-icons/go";
-import { IoShieldCheckmark } from "react-icons/io5";
-import { FaClipboardList, FaBuilding, FaMoneyBillWave, FaBoxOpen } from 'react-icons/fa';
-import { MdPermContactCalendar } from "react-icons/md";
+import React, { useState } from 'react'
+import { IoMenu } from 'react-icons/io5'
+import { GoArrowSwitch } from 'react-icons/go'
+import { IoShieldCheckmark } from 'react-icons/io5'
+import {
+  FaClipboardList,
+  FaBuilding,
+  FaMoneyBillWave,
+  FaBoxOpen
+} from 'react-icons/fa'
+import { MdPermContactCalendar } from 'react-icons/md'
 
 export default function Menu() {
   const [Menu, setMenu] = useState(true)
 
   const openMenu = () => {
-    setMenu(!Menu);
+    setMenu(!Menu)
   }
   return (
-    <nav className={`bg-zinc-100 h-screen md:h-[48em] lg:h-screen transition-transform duration-300 ${
-      Menu ? 'w-full sm:w-1/4 md:w-2/5 lg:w-1/4' : 'w-0 overflow-hidden'
-    }`}>
+    <nav
+      className={`bg-zinc-100 h-screen md:h-[48em] lg:h-screen transition-transform duration-300 ${
+        Menu ? 'w-full sm:w-1/4 md:w-2/5 lg:w-1/4' : 'w-0 overflow-hidden'
+      }`}
+    >
       <div className="flex mb-12 mt-4 justify-between px-4 sm:justify-start">
         <img src="/logo.png" alt="Logo" className="w-28 h-8 sm:w-36 sm:h-10" />
-        <button className="border h-8 bg-zinc-50 sm:hidden"
-        onClick={openMenu}>
+        <button className="border h-8 bg-zinc-50 sm:hidden" onClick={openMenu}>
           <IoMenu className="w-6 h-6" />
         </button>
       </div>
@@ -56,5 +62,5 @@ export default function Menu() {
         </li>
       </ul>
     </nav>
-  );
+  )
 }

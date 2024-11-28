@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import NextAuth from "next-auth";
 import { NextAuthOptions } from "next-auth";
-import CredentialsProvider  from "next-auth/providers/credentials";
+import CredentialsProvider from "next-auth/providers/credentials";
 import axios from "axios";
 
 const authOptions: NextAuthOptions = {
@@ -9,12 +9,11 @@ const authOptions: NextAuthOptions = {
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials) {
-        if (!credentials || !credentials.email || !credentials.password) {          
+        if (!credentials || !credentials.email || !credentials.password) {
           throw new Error("Email e senha são obrigatórios");
         }
 
@@ -24,7 +23,7 @@ const authOptions: NextAuthOptions = {
             password: credentials.password,
           })
 
-          
+
           if (response.status === 200 && response.data) {
             const user = response.data;
 
@@ -42,14 +41,15 @@ const authOptions: NextAuthOptions = {
           console.error("Erro ao autenticar:", error);
           throw new Error("Erro ao autenticar o usuário");
         }
-      }})],
-      session: {
-        strategy: "jwt", 
-      },
-      
-      pages: {
-        signIn: "/"
-      },
+      }
+    })],
+  session: {
+    strategy: "jwt",
+  },
+
+  pages: {
+    signIn: "/"
+  },
 }
 
 const handler = NextAuth(authOptions);

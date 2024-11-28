@@ -5,15 +5,14 @@ import Table from './components/Table'
 
 export default function page() {
   return (
-    <div className=''>
+    <div className="">
       <div className="flex justify-between">
-        <Menu/>
+        <Menu />
         <main className="w-full">
-          <Header/>
-          <Table/> 
+          <Header />
+          <Table />
         </main>
       </div>
     </div>
   )
 }
-

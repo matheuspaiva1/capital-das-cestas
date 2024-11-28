@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import React from 'react';
-import { FaBuilding } from 'react-icons/fa';
-import { FaRegUser } from 'react-icons/fa';
+import React from 'react'
+import { FaBuilding } from 'react-icons/fa'
+import { FaRegUser } from 'react-icons/fa'
 
 export default function Header() {
   return (
@@ -20,5 +20,5 @@ export default function Header() {
         </select>
       </div>
     </header>
-  );
+  )
 }
