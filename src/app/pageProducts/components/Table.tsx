@@ -6,8 +6,8 @@ import { IoIosArrowForward } from "react-icons/io";
 
 export default function Table() {
   return (
-    <div className='m-auto w-full'>
-      <table className="m-auto p-4 ">
+    <div className='m-4'>
+      <table className="m-auto p-4 w-full">
           <thead className="">
             <tr className=" text-zinc-300 text-sm">
               <th className="border-b p-4">ID</th>
