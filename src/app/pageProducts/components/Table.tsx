@@ -6,7 +6,7 @@ import { IoIosArrowForward } from "react-icons/io";
 
 export default function Table() {
   return (
-    <div className=''>
+    <div className='m-auto w-full'>
       <table className="m-auto p-4 ">
           <thead className="">
             <tr className=" text-zinc-300 text-sm">

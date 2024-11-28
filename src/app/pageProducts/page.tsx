@@ -10,11 +10,10 @@ export default function page() {
 
       <div className="flex justify-between">
         <Menu/>
-        <main>
+        <main className="w-full">
           <Header/>
           <SearchCompanies/>
           <Table/> 
-          <p>Bem vindo</p>       
         </main>
       </div>
     </div>
