@@ -2,6 +2,8 @@
 import React from 'react'
 import Header from './components/Header'
 import Menu from './components/Menu'
+import Table from './components/Table'
+import SearchCompanies from './components/SearchCompanies'
 
 export default function PageProducts() {
   return (
@@ -9,20 +11,16 @@ export default function PageProducts() {
 
       <div className="flex justify-between">
         <Menu/>
-        <Header/>
+        <main>
+          <Header/>
+          <SearchCompanies/>
+          <Table/>        
+        </main>
       </div>
 
-
       
 
       
-
-      <main>
-        
-
-
-        
-      </main>
     </div>
   )
 }

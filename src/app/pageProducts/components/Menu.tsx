@@ -19,8 +19,7 @@ export default function Menu() {
           </button>
         </div>
 
-
-        <ul >
+        <ul>
           <li className="flex mx-4 my-8 gap-2 text-lg items-center">
             <GoArrowSwitch className='text-lime-600 '/>
             <span className='text-zinc-500'>Acessar loja</span>
