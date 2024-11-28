@@ -6,7 +6,6 @@ import Table from './components/Table'
 export default function page() {
   return (
     <div className=''>
-
       <div className="flex justify-between">
         <Menu/>
         <main className="w-full">
