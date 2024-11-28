@@ -1,26 +1,57 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
-import credentials from "next-auth/providers/credentials";
+import axios from "axios";
 import { redirect } from "next/navigation";
 import { useState } from "react";
+
 
 // Definir o tipo para as credenciais
 
 export default function Form() {
-  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    language: "pt-br", // Exemplo de idioma
+    loginType: "Email", // Tipo de login
+    dataSource: "Web", // Tipo de dispositivo
+    remindMe: true, // Usuário quer ser lembrado
+  });
+  const [error, setError] = useState<string>("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Aqui você pode validar ou processar os dados do formulário
-    console.log("Dados do formulário enviados:", formData);
 
-    // Redireciona para a página desejada (ex.: "/dashboard")
-    redirect("/dashboard");
+    setError("")
+
+    try {
+      const response = await axios.post("https://auth2uappservice.azurewebsites.net/api/v1/Auth", {
+          language: formData.language,
+          loginType: formData.loginType,
+          login: formData.email, // Envia o email como login
+          pass: formData.password, // Envia a senha
+          remindMe: formData.remindMe,
+          dataSource: formData.dataSource,
+      })
+
+      console.log(response.data)
+
+      if(response.status === 201 || response.data.refreshToken) {
+        const {accessToken, refreshToken} = response.data
+
+        redirect("/pageProducts");
+      } else {
+        setError("Email ou senha invalidos")
+      }
+    } catch (error) {
+      console.error("Erro ao autenticar:", error);
+      setError("Erro ao autenticar. Tente novamente.");
+    }
+
   };
 
   return (
@@ -62,6 +93,12 @@ export default function Form() {
         >
           Entrar
         </button>
+
+        {error && (
+          <div style={{ color: "red", marginTop: "10px", textAlign: "center" }}>
+            {error}
+          </div>
+        )}
     </form>
   );
 }

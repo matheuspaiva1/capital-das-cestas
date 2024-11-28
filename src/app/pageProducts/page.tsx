@@ -3,9 +3,8 @@ import Header from './components/Header'
 import Menu from './components/Menu'
 import Table from './components/Table'
 import SearchCompanies from './components/SearchCompanies'
-import withAuth from '../hoc/withAuth'
 
-const PageProducts: React.FC = () => {
+export default function page() {
   return (
     <div className=''>
 
@@ -21,4 +20,4 @@ const PageProducts: React.FC = () => {
     </div>
   )
 }
-export default withAuth(PageProducts)
+
