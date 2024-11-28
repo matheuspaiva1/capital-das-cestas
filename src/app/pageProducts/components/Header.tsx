@@ -5,7 +5,7 @@ import { FaRegUser } from 'react-icons/fa'
 
 export default function Header() {
   return (
-    <header className="flex gap-[54em] border shadow-md  p-4">
+    <header className="flex gap-[61em] border shadow-md  p-4 w-[73em]">
       <div className="flex justify-center gap-2">
         <FaBuilding className='w-6 h-6'/>
         <h1 className='font-bold'>Empresas</h1>
