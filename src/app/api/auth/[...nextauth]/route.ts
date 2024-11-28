@@ -9,7 +9,7 @@ const authOptions: NextAuthOptions = {
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        
+
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" }
       },
@@ -44,7 +44,7 @@ const authOptions: NextAuthOptions = {
         }
       }})],
       session: {
-        strategy: "jwt", // Usa JWT para manter a sessão
+        strategy: "jwt", 
       },
       
       pages: {

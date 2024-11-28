@@ -2,22 +2,15 @@
 'use client'
 import axios from "axios";
 import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 
-// Definir o tipo para as credenciais
-
 export default function Form() {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-    language: "pt-br", // Exemplo de idioma
-    loginType: "Email", // Tipo de login
-    dataSource: "Web", // Tipo de dispositivo
-    remindMe: true, // Usuário quer ser lembrado
-  });
-  const [error, setError] = useState<string>("");
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [error, setError] = useState(""); 
 
+  const navigate = useRouter();
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -25,33 +18,31 @@ export default function Form() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    setError("")
-
     try {
-      const response = await axios.post("https://auth2uappservice.azurewebsites.net/api/v1/Auth", {
-          language: formData.language,
-          loginType: formData.loginType,
-          login: formData.email, // Envia o email como login
-          pass: formData.password, // Envia a senha
-          remindMe: formData.remindMe,
-          dataSource: formData.dataSource,
-      })
+      const response = await axios.post(
+        "https://auth2uappservice.azurewebsites.net/api/v1/Auth",
+        {
+          language: "pt-br", 
+          loginType: "Email", 
+          login: formData.email,
+          pass: formData.password,
+          remindMe: true, 
+          dataSource: "Web" 
+        }
+      );
 
-      console.log(response.data)
-
-      if(response.status === 201 || response.data.refreshToken) {
-        const {accessToken, refreshToken} = response.data
-
-        redirect("/pageProducts");
+      if (response.status === 201 && response.data) {
+        if (formData.email == "reginaldocarecode@hotmail.com" && formData.password == "2023") {
+          navigate.push("/pageProducts");
+        } else {
+          setError("Email ou senha inválido!");
+        }
       } else {
-        setError("Email ou senha invalidos")
+        setError("Erro ao autenticar. Verifique os campos do formulário.");
       }
     } catch (error) {
-      console.error("Erro ao autenticar:", error);
-      setError("Erro ao autenticar. Tente novamente.");
+      console.error("Erro na autenticação", error);
     }
-
   };
 
   return (
@@ -95,10 +86,10 @@ export default function Form() {
         </button>
 
         {error && (
-          <div style={{ color: "red", marginTop: "10px", textAlign: "center" }}>
-            {error}
-          </div>
-        )}
+        <div className="text-red-500 text-xs text-center mb-4">
+          {error}
+        </div>
+      )}
     </form>
   );
 }
