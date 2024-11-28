@@ -1,52 +1,47 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
-import axios from "axios";
-import { redirect } from "next/navigation";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-
+import axios from 'axios'
+import { redirect } from 'next/navigation'
+import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 
 export default function Form() {
-  const [formData, setFormData] = useState({ email: "", password: "" });
-  const [error, setError] = useState(""); 
+  const [formData, setFormData] = useState({ email: '', password: '' })
+  const [error, setError] = useState('')
 
-  const navigate = useRouter();
+  const navigate = useRouter()
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault()
     try {
       const response = await axios.post(
-        "https://auth2uappservice.azurewebsites.net/api/v1/Auth",
+        'https://auth2uappservice.azurewebsites.net/api/v1/Auth',
         {
-          language: "pt-br", 
-          loginType: "Email", 
+          language: 'pt-br',
+          loginType: 'Email',
           login: formData.email,
           pass: formData.password,
-          remindMe: true, 
-          dataSource: "Web" 
+          remindMe: true,
+          dataSource: 'Web'
         }
-      );
+      )
 
-      if (response.status === 201 && response.data) {
-        if (formData.email == "reginaldocarecode@hotmail.com" && formData.password == "2023") {
-          navigate.push("/pageProducts");
-        } else {
-          setError("Email ou senha inválido!");
-        }
+      if (response.status === 201 && response.data.isValid === true) {
+        navigate.push('/pageProducts')
       } else {
-        setError("Erro ao autenticar. Verifique os campos do formulário.");
+        setError(response.data.message)
       }
     } catch (error) {
-      console.error("Erro na autenticação", error);
+      console.error('Erro na autenticação', error)
     }
-  };
+  }
 
   return (
-    <form onSubmit={handleSubmit}> 
+    <form onSubmit={handleSubmit}>
       <div className="m-auto">
         <div className="font-medium text-zinc-900">
           <p>Login</p>
@@ -78,18 +73,16 @@ export default function Form() {
       <p className="text-xs flex justify-end m-4 font-medium text-zinc-900">
         Esqueci a senha!
       </p>
-        <button
-          className="bg-lime-400 text-zinc-50 w-1/2 h-10 my-4 m-24 rounded-xl font-bold text-sm"
-          type="submit"
-        >
-          Entrar
-        </button>
+      <button
+        className="bg-lime-400 text-zinc-50 w-1/2 h-10 my-4 m-24 rounded-xl font-bold text-sm"
+        type="submit"
+      >
+        Entrar
+      </button>
 
-        {error && (
-        <div className="text-red-500 text-xs text-center mb-4">
-          {error}
-        </div>
+      {error && (
+        <div className="text-red-500 text-xs text-center mb-4">{error}</div>
       )}
     </form>
-  );
+  )
 }

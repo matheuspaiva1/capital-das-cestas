@@ -2,7 +2,6 @@ import React from 'react'
 import Header from './components/Header'
 import Menu from './components/Menu'
 import Table from './components/Table'
-import SearchCompanies from './components/SearchCompanies'
 
 export default function page() {
   return (
@@ -12,7 +11,6 @@ export default function page() {
         <Menu/>
         <main className="w-full">
           <Header/>
-          <SearchCompanies/>
           <Table/> 
         </main>
       </div>
