@@ -251,7 +251,7 @@ export default function Table() {
 
   return (
     <div className='m-4'>
-      <div className="m-4 block lg:flex md:flex justify-between ">
+      <div className="m-4 block lg:flex md:block justify-between ">
           <div className="block lg:flex md:flex items-center gap-8">
             <input 
             type="text" 
@@ -264,7 +264,7 @@ export default function Table() {
             className='bg-zinc-800 text-zinc-50 px-10 py-3 rounded-lg font-bold block lg:flex text-xs lg:m-0 my-4'
             >Pesquisar</button>
           </div>
-          <button className='bg-lime-400 text-zinc-800 px-6 py-1 rounded-lg font-bold flex justify-end items-center'>Novo</button>
+          <button className='bg-lime-400 text-zinc-800 md:px-8 md:py-1 px-6 py-1 rounded-lg font-bold flex justify-end items-center'>Novo</button>
         </div>  
       <table className="m-auto p-4 w-full">
         <thead>
